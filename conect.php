@@ -1,5 +1,5 @@
 <?php
-
+//change
 class Conexion{
     public function Conectar(){
 define('HOST',  'localhost');
