@@ -195,6 +195,7 @@ function closeNav() {
 </script>
 
 <?php 
+/*
 			include('connect.php');
          if (isset($_POST['Enviar'])) {
             $Name =$_POST['Name'];
@@ -207,6 +208,7 @@ function closeNav() {
 			oci_execute($unir);
          oci_close($cnn);
          }
+*/
 ?>
 
    </body>
