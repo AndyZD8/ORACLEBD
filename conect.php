@@ -5,8 +5,8 @@ class Conexion{
 define('HOST',  'localhost');
 define('NAME',  'orcl');
 define('PORT',  '1521');
-define('USER',  'HR');
-define('PASS',  '123');
+define('USER',  'LBD');
+define('PASS',  'Naturaleza2020');
 
 $bd_settings = "(DESCRIPTION =
     (ADDRESS =
