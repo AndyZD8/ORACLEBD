@@ -194,21 +194,47 @@ function closeNav() {
 
 </script>
 
-<?php 
-/*
-			include('connect.php');
-         if (isset($_POST['Enviar'])) {
-            $Name =$_POST['Name'];
-            $Email =$_POST['Email'];
-            $Telephone =$_POST['Telephone'];
-            $Message =$_POST['Message'];
-			$cnn = oci_connect($user,$pswrd);
-			$sql = "INSERT INTO TB_CONSULTAS VALUES('$Name','$Email','$Telephone','$Message', SYSDATE)";
-			$unir = oci_parse($cnn, $sql);
-			oci_execute($unir);
-         oci_close($cnn);
-         }
-*/
+<?php
+
+
+//include ('conect.php');
+
+require_once ('conect.php');
+$conex = new Conexion();
+$getConection = $conex->Conectar();
+
+//$sql = "select*from JOBS where JOB_ID = 'SA_REP'";
+//$stmt = $getConection->prepare($sql);
+//$stmt->execute();
+
+//while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+  //  echo $row["REGION_NAME"]."br";
+//  foreach($row as $key=> $value){
+//    echo $key." __ ".$value."<br>";
+//  }
+
+//  echo '=========================================='."<br>";
+//}
+
+/////////////////////////INSERT OR CREATE///////////////////////////////////
+//try{
+   if (isset($_POST['Enviar'])) {
+      $Nombre =$_POST['Name'];
+      $Email =$_POST['Email'];
+      $Telefono =$_POST['Telephone'];
+      $Mensaje =$_POST['Message'];
+   try{
+      $sql = "INSERT INTO TB_CONTACT (NOMBRE,CORREO,TELEFONO,MENSAJE,FECHA)
+            VALUES('$Nombre','$Email','$Telefono','$Mensaje',SYSDATE)";
+      $stmt = $getConection->prepare($sql);
+      $stmt->execute();
+   } catch (PDOException $e){
+      echo"<br> NO SE INSERTO EL DATO POR EL ERROR: <br>".$e->getMessage();
+}
+
+}
+
+
 ?>
 
    </body>
